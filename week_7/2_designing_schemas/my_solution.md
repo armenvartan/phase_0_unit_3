@@ -16,7 +16,7 @@
 [one to one](../imgs/3_one_to_one.jpg)]
 
 ## Release 3: Many to Many Schema
-<!-- display your image inline here -->
+[many to many](../imgs/4_many_to_many.jpg)
 
 
 ## Release 4: Design your own Schema
