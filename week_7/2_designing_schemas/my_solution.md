@@ -5,7 +5,7 @@
 
 
 ## Release 0: Student Roster Schema
-![Student Roster](../../imgs/1_student_roster.jpg)
+![Student Roster](../imgs/1_student_roster.jpg)
 
 
 ## Release 1: One to Many Schema
