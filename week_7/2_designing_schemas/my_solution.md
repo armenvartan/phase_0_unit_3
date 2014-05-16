@@ -13,10 +13,10 @@
 
 
 ## Release 2: One to One Schema
-[one to one](../imgs/3_one_to_one.jpg)
+![one to one](../imgs/3_one_to_one.jpg)
 
 ## Release 3: Many to Many Schema
-[many to many](../imgs/4_many_to_many.jpg)
+![many to many](../imgs/4_many_to_many.jpg)
 
 
 ## Release 4: Design your own Schema
