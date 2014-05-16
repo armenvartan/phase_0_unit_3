@@ -5,7 +5,7 @@
 
 
 ## Release 0: Student Roster Schema
-<!-- display your image inline here -->
+![Student Roster](../../imgs/1_student_roster.jpg)
 
 
 ## Release 1: One to Many Schema
@@ -21,7 +21,7 @@
 
 
 ## Release 4: Design your own Schema
-Description of what you're modeling: 
+Description of what you're modeling:
 
 <!-- display your one-to-one image inline here -->
 <!-- display your many-to-many image inline here -->

@@ -96,7 +96,6 @@ class GroceryList
   end
 
   def start
-
     accepted_responses = ['additem', 'displaylist', 'removeitem', 'changequantity', 'changeunit', 'done']
 
     puts "Hello, welcome to the grocery list creator"
