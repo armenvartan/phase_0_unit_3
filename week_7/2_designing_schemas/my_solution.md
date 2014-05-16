@@ -13,8 +13,7 @@
 
 
 ## Release 2: One to One Schema
-<!-- display your image inline here -->
-
+[one to one](../imgs/3_one_to_one.jpg)]
 
 ## Release 3: Many to Many Schema
 <!-- display your image inline here -->
