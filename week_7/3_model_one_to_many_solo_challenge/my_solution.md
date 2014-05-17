@@ -27,17 +27,20 @@ The relationship between `users` and `tweets` is: one to many
 ## Release 4: SQL Statements
 <!-- Include your SQL Statements. How can you make markdown files show blocks of code? -->
 
-* SELECT tweet_text FROM tweets  
-  WHERE user = 'yomomma22';
+    SELECT tweet_text FROM tweets  
+    WHERE user = 'yomomma22';  
 
-* SELECT tweet_text FROM tweets  
-  WHERE user = 'yomomma22' AND created_at = "14 May, 2014";
+    SELECT tweet_text FROM tweets  
+    WHERE user = 'yomomma22' AND created_at = "14 May, 2014";  
 
-* SELECT tweet_text.tweets FROM tweets, users  
-  WHERE user.tweets = username.users;
+    SELECT tweet_text.tweets FROM tweets, users  
+    WHERE user.tweets = username.users;  
 
-* SELECT username.users FROM tweets, users  
-  WHERE id.tweets = '1';
+    SELECT username.users FROM tweets, users  
+    WHERE id.tweets = '1';  
 
 ## Release 5: Reflection
 <!-- Be sure to add your reflection here!!! -->
+
+It was interesting to do this assignment. I'm excited to look over other people's
+answers and see how they approached the challenge.
