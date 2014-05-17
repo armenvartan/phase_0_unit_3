@@ -10,12 +10,16 @@
 * twitter settings (how twitter interacts with you, notifications, etc...)
 * mobile number
 
+
 ## Release 1: Tweet Fields
-<!-- Identify the fields Twitter uses to represent/display a tweet. What are you required or allowed to enter? -->
+* tweet text
+* picture
+* location
+
 
 ## Release 2: Explain the relationship
-The relationship between `users` and `tweets` is:
-<!-- because... -->
+The relationship between `users` and `tweets` is: one to many
+<!-- because... --> one user can have many tweets
 
 ## Release 3: Schema Design
 <!-- Include your image (inline) of your schema -->
