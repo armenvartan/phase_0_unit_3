@@ -22,7 +22,7 @@ The relationship between `users` and `tweets` is: one to many
 <!-- because... --> one user can have many tweets
 
 ## Release 3: Schema Design
-<!-- Include your image (inline) of your schema -->
+![twitter_adv](../imgs/twitter_schema.jpg)
 
 ## Release 4: SQL Statements
 <!-- Include your SQL Statements. How can you make markdown files show blocks of code? -->
