@@ -1,8 +1,8 @@
 /*
 U3.W8-9: Gradebook from Names and Scores
 
-You will work with the following two variables.  The first, students, holds the names of four students.  
-The second, scores, holds groups of test scores.  The relative positions of elements within the two 
+You will work with the following two variables.  The first, students, holds the names of four students.
+The second, scores, holds groups of test scores.  The relative positions of elements within the two
 variables match (i.e., 'Joseph' is the first element in students; his scores are the first value in scores.).
 
 Do not alter the students and scores code.
@@ -21,19 +21,61 @@ var scores = [ [80, 70, 70, 100],
 
 
 
-
-
 // __________________________________________
 // Write your code below.
 
-
-
-
-
+// function average (array){
+//   sum = 0
+//   for (i = 0; i < array.length; i++){
+//     sum += array[i]
+//   }
+//   return sum / array.length
+// }
+//
+// var gradebook = new Object()
+//
+// for(i = 0; i < students.length; i++){
+//   gradebook[students[i]] = new Object()
+//   gradebook[students[i]].testScores = scores[i]
+// }
+//
+// for(i = 0; i < students.length; i++){
+//   gradebook[students[i]].testScores = scores[i]
+// }
+//
+// gradebook.addScore = function addScore(name, score){
+//   gradebook[name].testScores.push(score)
+// }
+//
+// gradebook.getAverage = function getAverage(name){
+//   return average(gradebook[name].testScores)
+// }
 
 // __________________________________________
 // Refactored Solution
 
+function average (array){
+  sum = 0
+  for (i = 0; i < array.length; i++){
+    sum += array[i]
+  }
+  return sum / array.length
+}
+
+var gradebook = new Object()
+
+for(i = 0; i < students.length; i++){
+  gradebook[students[i]] = new Object()
+  gradebook[students[i]].testScores = scores[i]
+}
+
+gradebook.addScore = function addScore(name, score){
+  gradebook[name].testScores.push(score)
+}
+
+gradebook.getAverage = function getAverage(name){
+  return average(gradebook[name].testScores)
+}
 
 
 
