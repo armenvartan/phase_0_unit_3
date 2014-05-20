@@ -86,7 +86,9 @@ gradebook.getAverage = function getAverage(name){
 // __________________________________________
 // Reflect
 
-
+// It took a little bit to figure out how JS works again. I'm not very good at JS
+// syntax. I'm feeling pretty good overall about the solution. I think I took a
+// procedural approach, more than an OO approach.
 
 
 
