@@ -1,4 +1,4 @@
-# U3.W8-9: 
+# U3.W8-9:
 
 
 # I worked on this challenge [by myself, with: ].
@@ -10,8 +10,17 @@
 # 3. Initial Solution
 
 def super_fizzbuzz(array)
-
-
+  array.map do |i|
+    if i % 3 == 0 && i % 5 != 0
+      i = "Fizz"
+    elsif i % 5 == 0 && i % 3 != 0
+      i = "Buzz"
+    elsif i % 3 == 0 && i % 5 == 0
+      i = "FizzBuzz"
+    else
+      i
+    end
+  end
 end
 
 
@@ -30,4 +39,5 @@ end
 
 
 
-# 5. Reflection 
+# 5. Reflection
+# I couldn't sleep, so I did this problem.
