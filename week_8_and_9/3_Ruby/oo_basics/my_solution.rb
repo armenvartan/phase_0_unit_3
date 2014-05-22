@@ -12,12 +12,36 @@
 class Student
   attr_accessor :scores, :first_name
 
-  def initialize(args)   #Use named arguments!
-    #your code here
+  def initialize(first_name, scores)   #Use named arguments!
+    @first_name = first_name
+    @scores = scores
+  end
+
+  def average
+    scores.reduce(:+) / scores.length
+  end
+
+  def letter_grade
+    if self.average >= 90
+      "A"
+    elsif self.average >= 80
+      "B"
+    elsif self.average >= 70
+      "C"
+    elsif self.average >= 60
+      "D"
+    else
+      "F"
+    end
+  end
+
+  def linear_search
+    self.each_with_index{|name,i| i if name == self.first_name }
   end
 end
-
-
+students = [["Alex",[100,100,100,0,100]],["John",[100,100,100,0,100]]]
+students[0] = Student.new(students[0][0],students[0][1])
+p students[0]
 # 4. Refactored Solution
 
 
@@ -48,4 +72,4 @@ p linear_search(students, "NOT A STUDENT") == -1
 
 
 
-# 5. Reflection 
+# 5. Reflection
