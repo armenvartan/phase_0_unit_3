@@ -34,14 +34,23 @@ class Student
       "F"
     end
   end
+end
 
-  def linear_search
-    self.each_with_index{|name,i| i if name == self.first_name }
+def linear_search(array,search)
+  array.each_with_index do |student,i|
+    if student.first_name == search
+      return i
+      break
+    else
+      return -1
+    end
   end
 end
 students = [["Alex",[100,100,100,0,100]],["John",[100,100,100,0,100]]]
-students[0] = Student.new(students[0][0],students[0][1])
-p students[0]
+# students[0] = Student.new(students[0][0],students[0][1])
+# students[1] = Student.new(students[1][0],students[1][1])
+students.each{ |x| Student.new(x[0].to_s, x[1]) }
+p 
 # 4. Refactored Solution
 
 

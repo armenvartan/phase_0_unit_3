@@ -1,4 +1,4 @@
-// U3.W8-9: 
+// U3.W8-9:
 
 
 // I worked on this challenge [by myself, with: ].
@@ -9,6 +9,15 @@
 
 // 3. Initial Solution
 
+function GroceryItem(item, quantity, unit){
+  this.item = item
+  this.quantity = quantity
+  this.unit = unit
+}
+
+function GroceryList(){
+  this.list = []
+}
 
 
 
@@ -26,4 +35,4 @@
 
 
 
-// 5. Reflection 
+// 5. Reflection

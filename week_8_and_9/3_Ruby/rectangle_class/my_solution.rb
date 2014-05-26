@@ -20,6 +20,22 @@ class Rectangle
     (other.width  == self.width && other.height == self.height ) ||
     (other.height == self.width && other.width  == self.height )
   end
+
+  def area
+    @width * @height
+  end
+
+  def perimeter
+    2*@width + 2*@height
+  end
+
+  def diagonal
+    Math.sqrt(@width*@width + @height*@height)
+  end
+
+  def square?
+    @width == @height
+  end
 end
 
 
@@ -39,4 +55,4 @@ end
 
 
 
-# 5. Reflection 
+# 5. Reflection
