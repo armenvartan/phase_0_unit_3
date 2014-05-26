@@ -1,6 +1,6 @@
 # U3.W7: BONUS Using the SQLite Gem
 
-# I worked on this challenge [by myself, with:]
+# I worked on this challenge [by myself]
 
 require 'sqlite3'
 
@@ -11,22 +11,31 @@ $db = SQLite3::Database.open "congress_poll_results.db"
 def print_arizona_reps
   puts "AZ REPRESENTATIVES"
   az_reps = $db.execute("SELECT name FROM congress_members WHERE location = 'AZ'")
-  az_reps.each { |rep| puts rep }
+  az_reps.each{ |rep| puts rep }
 end
 
 def print_longest_serving_reps(minimum_years)  #sorry guys, oracle needs me, i didn't finish this!
   puts "LONGEST SERVING REPRESENTATIVES"
-  puts $db.execute("SELECT name FROM congress_members WHERE years_in_congress > #{minimum_years}")
+  longest_reps = $db.execute("SELECT name, years_in_congress FROM congress_members WHERE years_in_congress > #{minimum_years}")
+  longest_reps.each{ |rep| puts rep[0] + " - " + rep[1].to_s + ' years'}
 end
 
 def print_lowest_grade_level_speakers
   puts "LOWEST GRADE LEVEL SPEAKERS (less than < 8th grade)"
+  lowest_grades = $db.execute("SELECT name, grade_current FROM congress_members WHERE grade_current < 8")
+  lowest_grades.each{ |rep| puts rep[0] + " - " + rep[1].to_s }
+end
+
+def print_nj_ny_me_fl_ak
+  puts "REPRESENTATIVES OF NJ, NY, ME, FL, AK"
+  nj_to_ak = $db.execute("SELECT name, location FROM congress_members WHERE location IN ('NJ', 'NY', 'ME', 'FL', 'AK')")
+  nj_to_ak.each{ |rep| puts rep[0] + " - " + rep[1] }
 end
 
 def print_separator
-  puts 
+  puts
   puts "------------------------------------------------------------------------------"
-  puts 
+  puts
 end
 
 
@@ -39,9 +48,11 @@ print_longest_serving_reps(35)
 # output should look like:  Rep. C. W. Bill Young - 41 years
 
 print_separator
-print_lowest_grade_level_speakers 
+print_lowest_grade_level_speakers
 # TODO - Need to be able to pass the grade level as an argument, look in schema for "grade_current" column
 
+print_separator
+print_nj_ny_me_fl_ak
 # TODO - Make a method to print the following states representatives as well:
 # (New Jersey, New York, Maine, Florida, and Alaska)
 
@@ -51,7 +62,7 @@ print_lowest_grade_level_speakers
 
 # TODO (bonus)
 # Create a listing of all of the Politicians and the number of votes they recieved
-# output should look like:  Sen. John McCain - 7,323 votes (This is an example, yours will not return this value, it should just 
+# output should look like:  Sen. John McCain - 7,323 votes (This is an example, yours will not return this value, it should just
 #    have a similar format)
 # Create a listing of each Politician and the voter that voted for them
 # output should include the senators name, then a long list of voters separated by a comma
@@ -60,10 +71,10 @@ print_lowest_grade_level_speakers
 
 
 # REFLECTION- Include your reflection as a comment below.
-# How does the sqlite3 gem work?  What is the variable `$db` holding?  
+# How does the sqlite3 gem work?  What is the variable `$db` holding?
 # Try to use your knowledge of ruby and OO to decipher this as well as h
-# ow the `#execute` method works.  Take a stab at explaining the line 
-# `$db.execute("SELECT name FROM congress_members WHERE years_in_congress 
-#   > #{minimum_years}")`.  Try to explain this as clearly as possible for 
-# your fellow students.  
+# ow the `#execute` method works.  Take a stab at explaining the line
+# `$db.execute("SELECT name FROM congress_members WHERE years_in_congress
+#   > #{minimum_years}")`.  Try to explain this as clearly as possible for
+# your fellow students.
 # If you're having trouble, find someone to pair on this explanation with you.
