@@ -49,7 +49,6 @@ end
 class GroceryList
   def initialize
     @list = []
-    # pseudo code @index_number = @list.index[item] + 1
   end
 
   def add_item(grocery)
@@ -86,32 +85,33 @@ class GroceryList
       puts "Please choose a number from the list:"
       self.display_list
       answer = gets.chomp
-      throw :abortrequest if answer == 'abort'
-      @@item_num = answer.to_i
-      raise if @@item_num < 1 || @@item_num > self.show_length
-    rescue
-      puts "Please type a number from the menu or type 'abort'"
+      self.abort
       retry
     end
   end
 
+  def abort
+    throw :abortrequest if answer == 'abort'
+    @@item_num = answer.to_i
+    raise if @@item_num < 1 || @@item_num > self.show_length
+  rescue
+    puts "Please type a number from the menu or type 'abort'"
+  end
+
   def start
-    accepted_responses = ['additem', 'displaylist', 'removeitem', 'changequantity', 'changeunit', 'done']
+    accepted_responses = [add = /^add/, display = /^display/, remove = /^remove/,
+      change_qty = /quantity/, change_unit = /unit/, done = /^done/]
 
     puts "Hello, welcome to the grocery list creator"
     response = nil
 
-    while response != 'done' do
+    while response != done do
       catch :abortrequest do
         puts "Please choose from the menu: add item, display list, remove item, change quantity, change unit, done)"
-        response = gets.chomp.downcase.gsub(/\s/, "")
-
-        unless accepted_responses.include?(response)
-          puts "Please enter a valid response."
-        end
+        response = gets.chomp
 
         case response
-        when 'additem'
+        when add
           puts "What item do you want to add?"
           item = gets.chomp
           puts "How many of the item do you want?"
@@ -122,15 +122,15 @@ class GroceryList
           item_to_add = GroceryItem.new(item, quantity, unit)
           self.add_item(item_to_add)
 
-        when 'displaylist'
+        when display
           puts "Here's your list thus far:"
           self.display_list
 
-        when 'removeitem'
+        when remove
           self.question_prompt
           self.remove_item(@@item_num)
 
-        when 'changequantity' #added to user experience
+        when change_qty #added to user experience
           self.question_prompt
           grocery = self.list_return[@@item_num-1] #object
           old_qty = self.list_return[@@item_num-1].quantity #integer quantity
@@ -140,7 +140,7 @@ class GroceryList
           puts "You changed the quantity of item # #{@@item_num} from #{old_qty} to #{new_qty}. Here's your new list:"
           self.display_list
 
-        when 'changeunit'
+        when change_unit
           self.question_prompt
           grocery = self.list_return[@@item_num-1] #object
           old_unit = self.list_return[@@item_num-1].unit #integer quantity
@@ -150,8 +150,10 @@ class GroceryList
           puts "You changed the unit of item # #{@@item_num} from #{old_unit} to #{new_unit}. Here's your new list:"
           self.display_list
 
-        when 'done'
+        when done
           abort("Thanks for using this command line tool!")
+        else
+          puts "Please enter a valid response."
         end
       end
     end
