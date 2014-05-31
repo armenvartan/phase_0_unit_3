@@ -5,10 +5,18 @@
 
 // 2. Pseudocode
 
+// I have no clue. I get really lost with JS.
+// I'm going to make specs and try to pass them.
 
 
 // 3. Initial Solution
-
+function errorCheck(cc_number){
+  var number_length = cc_number.toString();
+  if number_length != 16 throw "wrong number of digits";
+  check(error){
+    console.log("Error: " + error + ".");
+  }
+}
 
 
 
@@ -20,10 +28,15 @@
 
 
 // 1. DRIVER TESTS/ASSERT STATEMENTS GO BELOW THIS LINE
+// cc1 = "1234567890123456";
+// errorCheck(cc1);
+function assert(outcome, description){
+  test = outcome ? "pass" : "fail";
+  console.log(test + ": " + description);
+}
+
+assert(1+1==3, "testing");
 
 
 
-
-
-
-// 5. Reflection 
+// 5. Reflection

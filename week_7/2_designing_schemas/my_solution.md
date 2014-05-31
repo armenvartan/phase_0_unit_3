@@ -27,7 +27,8 @@ At the bottom, which connects every type of produce is the information table. Th
 tells you the growing season, market price, pests, etc. There would be the option
 with this to create a predator table, as well. So you could see how pests and their
 predators correlate by what plants you grow. Example, one plant may attract a certain
-type of spider which will protect other plants.
+type of spider which will protect other plants.  
+I saved it as produce_adv
 
 
 ![produce schema](../imgs/5_produce_schema.jpg)]
