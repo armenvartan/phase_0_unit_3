@@ -85,22 +85,18 @@ class GroceryList
       puts "Please choose a number from the list:"
       self.display_list
       answer = gets.chomp
-      self.abort
+      throw :abortrequest if answer == 'abort'
+      @@item_num = answer.to_i
+      raise if @@item_num < 1 || @@item_num > self.show_length
+    rescue
+      puts "Please type a number from the menu or type 'abort'"
       retry
     end
   end
 
-  def abort
-    throw :abortrequest if answer == 'abort'
-    @@item_num = answer.to_i
-    raise if @@item_num < 1 || @@item_num > self.show_length
-  rescue
-    puts "Please type a number from the menu or type 'abort'"
-  end
-
   def start
-    accepted_responses = [add = /^add/, display = /^display/, remove = /^remove/,
-      change_qty = /quantity/, change_unit = /unit/, done = /^done/]
+    accepted_responses = [add = /add/, display = /display/, remove = /remove/,
+      change_qty = /quantity/, change_unit = /unit/, done = /done/]
 
     puts "Hello, welcome to the grocery list creator"
     response = nil
