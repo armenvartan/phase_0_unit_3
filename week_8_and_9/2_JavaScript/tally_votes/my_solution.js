@@ -1,8 +1,9 @@
 // U3.W8-9: Gradebook from Names and Scores
 
-// I worked on this challenge [by myself, with:]
+// I worked on this challenge [with: Brendan Susens Jackson]
 
 // These are the votes cast by each student. Do not alter these objects here.
+
 var votes = {
   "Alex": { president: "Bob", vicePresident: "Devin", secretary: "Gail", treasurer: "Kerry" },
   "Bob": { president: "Mary", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
@@ -40,8 +41,9 @@ var voteCount = {
   treasurer: {}
 }
 
-/* The name of each student receiving a vote for an office should become a property 
-of the respective office in voteCount.  After Alex's votes have been tallied, 
+
+/* The name of each student receiving a vote for an office should become a property
+of the respective office in voteCount.  After Alex's votes have been tallied,
 voteCount would be ...
 
   var voteCount = {
@@ -54,7 +56,7 @@ voteCount would be ...
 */
 
 
-/* Once the votes have been tallied, assign each officer position the name of the 
+/* Once the votes have been tallied, assign each officer position the name of the
 student who received the most votes. */
 var officers = {
   president: undefined,
@@ -69,8 +71,36 @@ var officers = {
 // __________________________________________
 // Initial Solution
 
+for(var person in votes){
+  voteCount.president[votes[person].president] = 0;
+  voteCount.vicePresident[votes[person].vicePresident] = 0;
+  voteCount.secretary[votes[person].secretary] = 0;
+  voteCount.treasurer[votes[person].treasurer] = 0;
+}
 
+for(var person in votes){
+  if(voteCount.president.hasOwnProperty(votes[person].president)){
+    voteCount.president[votes[person].president] += 1
+  }
+  if(voteCount.vicePresident.hasOwnProperty(votes[person].vicePresident)){
+    voteCount.vicePresident[votes[person].vicePresident] += 1
+  }
+  if(voteCount.secretary.hasOwnProperty(votes[person].secretary)){
+    voteCount.secretary[votes[person].secretary] += 1
+  }
+  if(voteCount.treasurer.hasOwnProperty(votes[person].treasurer)){
+    voteCount.treasurer[votes[person].treasurer] += 1
+  }
+}
 
+for(office in officers){
+  var score = 0;
+  for(vote in voteCount[office])
+  if(voteCount[office][vote] > score){
+    score = voteCount[office][vote];
+    officers[office] = vote
+  }
+}
 
 
 
@@ -94,6 +124,7 @@ var officers = {
 // __________________________________________
 // Driver Code:  Do not alter code below this line.
 
+console.log(voteCount)
 
 function assert(test, message, test_number) {
   if (!test) {
